@@ -7,21 +7,20 @@ const UserSchema = mongoose.Schema(
             required: [true, 'Please enter name place'],
         },
         email: {
-            type: Number,
+            type: String,
             required: true,
-            default: 0
+            unique: true, // Menambahkan unique untuk memastikan tidak ada duplikasi email
         },
         password: {
-            type: Number,
+            type: String,
             required: true,
-            default: 0
         },
     },
     {
         timestamps: true,
     }
-)
+);
 
-const Users = mongoose.model('Users',UserSchema);
+const Users = mongoose.model('Users', UserSchema);
 
 module.exports = Users;
