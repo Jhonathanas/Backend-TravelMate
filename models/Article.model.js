@@ -1,27 +1,35 @@
 const mongoose = require('mongoose');
 
-const UserSchema = mongoose.Schema(
+// Assuming you have User and Pariwisata schemas defined elsewhere
+const User = require('./User.model');
+const Pariwisata = require('./Pariwisata.model');
+
+const ArticleSchema = new mongoose.Schema(
     {
-        name: {
+        title: {
             type: String,
-            required: [true, 'Please enter name place'],
+            required: [true, 'Please enter the title'],
         },
-        email: {
-            type: Number,
-            required: true,
-            default: 0
+        description: {
+            type: String, // Changed to String to match typical descriptions
+            required: [true, 'Please enter the description'],
         },
-        password: {
-            type: Number,
+        user_id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: User, // Reference to the User model
             required: true,
-            default: 0
+        },
+        pariwisata: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: Pariwisata, // Reference to the Pariwisata model
+            required: true,
         },
     },
     {
         timestamps: true,
     }
-)
+);
 
-const Users = mongoose.model('Users',UserSchema);
+const Article = mongoose.model('Article', ArticleSchema);
 
-module.exports = Users;
+module.exports = Article;
