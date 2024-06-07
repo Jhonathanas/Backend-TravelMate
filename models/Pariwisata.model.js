@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const PlaceSchema = mongoose.Schema(
+const PariwisataSchema = mongoose.Schema(
     {
         name: {
             type: String,
@@ -26,6 +26,6 @@ const PlaceSchema = mongoose.Schema(
     }
 )
 
-const Place = mongoose.model('Place',PlaceSchema);
+const Pariwisata = mongoose.model('Pariwisata',PariwisataSchema);
 
-module.exports = Place;
+module.exports = Pariwisata;
