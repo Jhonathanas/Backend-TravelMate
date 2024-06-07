@@ -1,7 +1,7 @@
-const PariwisataModel = require('../models/Pariwisata.model');
+const PariwisataModel = require('../models/Pariwisata.model')
 
 // Get all Pariwisata
-exports.getAllPariwisata = async (req, res) => {
+const getAllPariwisata = async (req, res) => {
     try {
         const pariwisatas = await PariwisataModel.find({});
         res.status(200).json(pariwisatas);
@@ -12,7 +12,7 @@ exports.getAllPariwisata = async (req, res) => {
 };
 
 // Get single Pariwisata by ID
-exports.getPariwisataById = async (req, res) => {
+const getPariwisataById = async (req, res) => {
     try {
         const { id } = req.params;
         const pariwisata = await PariwisataModel.findById(id);
@@ -27,7 +27,7 @@ exports.getPariwisataById = async (req, res) => {
 };
 
 // Create a new Pariwisata
-exports.createPariwisata = async (req, res) => {
+const createPariwisata = async (req, res) => {
     try {
         const newPariwisata = await PariwisataModel.create(req.body);
         res.status(201).json(newPariwisata); // Use status 201 for created resources
@@ -38,7 +38,7 @@ exports.createPariwisata = async (req, res) => {
 };
 
 // Update a Pariwisata by ID
-exports.updatePariwisata = async (req, res) => {
+const updatePariwisata = async (req, res) => {
     try {
         const { id } = req.params;
         const updatedPariwisata = await PariwisataModel.findByIdAndUpdate(id, req.body, { new: true, runValidators: true });
@@ -53,7 +53,7 @@ exports.updatePariwisata = async (req, res) => {
 };
 
 // Delete a Pariwisata by ID
-exports.deletePariwisata = async (req, res) => {
+const deletePariwisata = async (req, res) => {
     try {
         const { id } = req.params;
         const deletedPariwisata = await PariwisataModel.findByIdAndDelete(id);
@@ -65,4 +65,12 @@ exports.deletePariwisata = async (req, res) => {
         console.error(error.message); // Log the error for debugging
         res.status(500).json({ message: error.message });
     }
+};
+
+module.exports = {
+    getAllPariwisata,
+    getPariwisataById,
+    createPariwisata,
+    updatePariwisata,
+    deletePariwisata
 };

@@ -1,6 +1,5 @@
 const express = require('express');
-const mongoose = require('mongoose');
-const pariwisataRoutes = require('./routes/pariwisataRoutes');
+const pariwisataRoutes = require('./routes/PariwisataRoute'); // Ensure this path is correct
 
 const app = express();
 

@@ -5,7 +5,7 @@ const {
     createPariwisata,
     updatePariwisata,
     deletePariwisata
-} = require('../controllers/pariwisataController');
+} = require('../controllers/PariwisataController');
 
 const router = express.Router();
 

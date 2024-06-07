@@ -6,26 +6,26 @@ const PariwisataSchema = mongoose.Schema(
             type: String,
             required: [true, 'Please enter name place'],
         },
-        quantity: {
-            type: Number,
+        category: {
+            type: String,
+            enum: ['Kuliner', 'Budaya', 'Religi', 'Pendidikan', 'Kesenian', 'Alam'],
             required: true,
-            default: 0
+        },
+        address: {
+            type: String,
+            required: true,
         },
         price: {
             type: Number,
             required: true,
             default: 0
         },
-        image: {
-            type: String,
-            required: false,
-        },
     },
     {
         timestamps: true,
     }
-)
+);
 
-const Pariwisata = mongoose.model('Pariwisata',PariwisataSchema);
+const Pariwisata = mongoose.model('Pariwisata', PariwisataSchema);
 
 module.exports = Pariwisata;
