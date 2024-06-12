@@ -14,7 +14,7 @@ app.use('/users', userRoutes);
 app.use('/articles', articleRouter);
 
 app.get('/', (req, res) => {
-    res.send('hello from node API TRAVELMATE silahkan membaca Dokumentasi di sini https://github.com/Jhonathanas/Backend-TravelMate.git');
+    res.send('hello This is node API TRAVELMATE silahkan membaca Dokumentasi di sini https://github.com/Jhonathanas/Backend-TravelMate.git');
 });
 
 module.exports = app;
