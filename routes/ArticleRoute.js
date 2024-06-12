@@ -1,12 +1,18 @@
 const express = require('express');
 const router = express.Router();
-// const articleController = require('../controllers/articleController');
+const {
+    getAllArticles,
+    getArticleById,
+    createArticle,
+    updateArticle,
+    deleteArticle
+} = require('../controllers/ArticleController');
 
 // Define routes and link them to controller functions
-router.get('/', articleController.getAllArticles);
-router.get('/:id', articleController.getArticleById);
-router.post('/', articleController.createArticle);
-router.put('/:id', articleController.updateArticle);
-router.delete('/:id', articleController.deleteArticle);
+router.get('/', getAllArticles);
+router.get('/:id', getArticleById);
+router.post('/', createArticle);
+router.put('/:id', updateArticle);
+router.delete('/:id', deleteArticle);
 
 module.exports = router;

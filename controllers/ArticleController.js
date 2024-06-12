@@ -1,7 +1,7 @@
 const Article = require('../models/Article.model');
 
 // Get all articles
-exports.getAllArticles = async (req, res) => {
+const getAllArticles = async (req, res) => {
     try {
         const articles = await Article.find().populate('user_id').populate('pariwisata');
         res.status(200).json(articles);
@@ -11,7 +11,7 @@ exports.getAllArticles = async (req, res) => {
 };
 
 // Get article by ID
-exports.getArticleById = async (req, res) => {
+const getArticleById = async (req, res) => {
     try {
         const article = await Article.findById(req.params.id).populate('user_id').populate('pariwisata');
         if (!article) {
@@ -24,7 +24,7 @@ exports.getArticleById = async (req, res) => {
 };
 
 // Create a new article
-exports.createArticle = async (req, res) => {
+const createArticle = async (req, res) => {
     const { title, description, user_id, pariwisata } = req.body;
 
     const newArticle = new Article({
@@ -43,7 +43,7 @@ exports.createArticle = async (req, res) => {
 };
 
 // Update an article
-exports.updateArticle = async (req, res) => {
+const updateArticle = async (req, res) => {
     try {
         const updatedArticle = await Article.findByIdAndUpdate(
             req.params.id,
@@ -62,7 +62,7 @@ exports.updateArticle = async (req, res) => {
 };
 
 // Delete an article
-exports.deleteArticle = async (req, res) => {
+const deleteArticle = async (req, res) => {
     try {
         const deletedArticle = await Article.findByIdAndDelete(req.params.id);
         if (!deletedArticle) {
@@ -72,4 +72,12 @@ exports.deleteArticle = async (req, res) => {
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
+};
+
+module.exports = {
+    getAllArticles,
+    getArticleById,
+    createArticle,
+    updateArticle,
+    deleteArticle
 };
