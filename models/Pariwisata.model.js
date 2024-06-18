@@ -11,6 +11,10 @@ const PariwisataSchema = mongoose.Schema(
             enum: ['Kuliner', 'Budaya', 'Religi', 'Pendidikan', 'Kesenian', 'Alam'],
             required: true,
         },
+        description: {
+            type: String,
+            required: [true, 'Please the description place'],
+        },
         address: {
             type: String,
             required: true,
