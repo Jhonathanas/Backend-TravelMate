@@ -15,6 +15,10 @@ const PariwisataSchema = mongoose.Schema(
             type: String,
             required: [true, 'Please the description place'],
         },
+        description: {
+            type: String,
+            required: false,
+        },
         address: {
             type: String,
             required: true,
